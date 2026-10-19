@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="KYRO — a modern messaging experience.">
+  <title>KYRO — Messages</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/kyro.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <header class="brand-row">
+        <div class="brand-mark">K</div>
+        <div><div class="brand-name">KYRO</div><div class="brand-sub">Stay connected</div></div>
+        <button class="icon-button mobile-close" id="closeSidebar" aria-label="Close chats">×</button>
+      </header>
+      <div class="sidebar-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search chats" aria-label="Search chats"></label>
+        <button class="new-chat" id="newChatBtn" title="Create demo chat">＋</button>
+      </div>
+      <div class="section-label">MESSAGES <span id="chatCount">3</span></div>
+      <div class="chat-list" id="chatList"></div>
+      <footer class="sidebar-profile">
+        <div class="avatar avatar-you">A</div>
+        <div class="profile-copy"><strong id="profileName">Anurag</strong><span>@you · Demo profile</span></div>
+        <button class="icon-button" id="settingsBtn" aria-label="Settings">⚙</button>
+      </footer>
+    </aside>
+
+    <main class="main-panel">
+      <section class="welcome-state" id="welcomeState">
+        <button class="mobile-menu icon-button" id="openSidebar" aria-label="Open chats">☰</button>
+        <div class="welcome-logo">K</div>
+        <h1>Good conversations<br><span>start here.</span></h1>
+        <p>Choose a conversation to see your messages, or start a new demo chat.</p>
+        <button class="primary-button" id="welcomeNewChat">＋ New conversation</button>
+        <div class="demo-note">KYRO preview · Messages are stored on this device</div>
+      </section>
+
+      <section class="conversation hidden" id="conversation">
+        <header class="conversation-header">
+          <button class="icon-button mobile-menu" id="openSidebarChat" aria-label="Open chats">☰</button>
+          <div class="avatar" id="headerAvatar">M</div>
+          <div class="header-copy"><strong id="headerName">Mira Shah</strong><span id="headerStatus"><i class="status-dot"></i> Demo conversation</span></div>
+          <button class="icon-button" id="chatInfoBtn" aria-label="Conversation info">ⓘ</button>
+        </header>
+        <div class="messages-area" id="messagesArea">
+          <div class="date-divider"><span>Today</span></div>
+          <div class="messages-list" id="messagesList"></div>
+        </div>
+        <form class="composer" id="composer">
+          <button type="button" class="icon-button attach-button" id="emojiBtn" aria-label="Insert emoji">☺</button>
+          <input id="messageInput" type="text" maxlength="2000" placeholder="Write a message..." autocomplete="off" aria-label="Write a message">
+          <button type="submit" class="send-button" aria-label="Send message">➤</button>
+        </form>
+        <div class="composer-hint">Enter to send <span>•</span> Demo mode</div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+  </div>
+  <dialog id="simpleDialog" class="dialog">
+    <form method="dialog" id="dialogForm">
+      <div class="dialog-top"><h2 id="dialogTitle">New conversation</h2><button class="icon-button" aria-label="Close">×</button></div>
+      <p id="dialogDescription">Create a local demo conversation.</p>
+      <label class="field-label" for="dialogInput" id="dialogLabel">Display name</label>
+      <input id="dialogInput" class="dialog-input" maxlength="32" placeholder="e.g. Riya" required>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">Cancel</button><button class="primary-button" id="dialogConfirm" value="confirm">Continue</button></div>
+    </form>
+  </dialog>
+  <script src="./app.js"></script>
+</body>
+</html>
